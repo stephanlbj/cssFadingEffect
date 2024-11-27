@@ -1,0 +1,169 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+    background-color: black;
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 10vw ;
+    padding-inline-end: 10vw ;
+    color: white;
+    gap: 30px;
+    animation: firstInit 5s linear;
+    margin-block-start: 10%;
+    margin-block-end: 10%;
+    width: 100%;
+    
+}
+
+.container .first{
+    inline-size: min(90%, 75%);
+    block-size: 300px;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+   
+}
+
+.container .second{
+    inline-size: 100px;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: white;
+
+    background-color: blue;
+    border-radius: 50%;
+    animation: secondInit 5s linear infinite;
+    animation-timeline: view(40%,  60%);
+  
+}
+
+
+.container .autoShow{
+  animation: autoShowAnimation  both;
+  animation-timeline: view(30%  30%);
+  margin: 0 auto;
+}
+
+.container .right{
+    width: 40%;
+    animation: autoShowAnimation  both;
+  animation-timeline: view(10%  30%);
+    text-align: center;
+    background-color: red;
+    display: flex;
+    align-self: flex-end;
+  }
+
+  .container .left{
+    width: 40%;
+    animation: autoShowAnimation  both;
+  animation-timeline: view(5%  30%);
+    text-align: center;
+    background-color: green;
+    display: flex;
+    align-self: flex-start;
+  }
+
+  .container .right1{
+    width: 40%;
+    animation: autoShowAnimation  both;
+  animation-timeline: view(10%  30%);
+    text-align: center;
+    background-color: red;
+    display: flex;
+    align-self: flex-end;
+  }
+
+ 
+  .container .left1{
+    width: 40%;
+    animation: autoShowAnimation  both;
+  animation-timeline: view(auto 30%);
+    text-align: center;
+    background-color: green;
+    display: flex;
+    align-self: flex-start;
+  }
+
+
+  .container .grid{
+    display: grid;
+    width: 100%;
+    text-align: center;
+  }
+
+  .container .grid > div{
+   font-size: clamp(1.1rem,10vw,11.3rem);
+  }
+ 
+
+  .blurClass{
+    animation: autoBlur  both;
+    animation-timeline: view(50% auto);
+  }
+
+  @keyframes autoBlur {
+    0%{
+        filter: blur(40px);
+    }
+    50%, 60%{
+        filter: blur(0);
+    }
+    100%{
+        filter: blur(40px);
+    }
+  }
+
+@keyframes firstInit {
+
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+}
+
+@keyframes secondInit {
+
+    from{
+        transform: rotate(0deg) ;
+
+    }
+    
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+
+@keyframes autoShowAnimation {
+
+    from{
+        opacity: 0;
+        transform: translateY(200px) scale(0.2);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    
+}
+
+
